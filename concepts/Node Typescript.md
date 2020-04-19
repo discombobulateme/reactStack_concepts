@@ -302,7 +302,7 @@
             export default Appointment;
 
     2. This will allow us to, instead of creating an Appointment interface for every single file, just importing it into the files, now in the `appointments.routes.ts`: `import Appointment from '../models/Appointment';` > And instead of needing a const to have a whole object at, just having a new Appointment: `const appointment = new Appointment(provider, parsedDate);`
-- Creating repositories (data storage)
+## Creating repositories (data storage)
 
     Repository is a connection between the persistence and the route Persistency ↔ Repository ↔ Route . Repository is where we search for persisted information in the data base or in a variable, for example. In the repository I can have a method find to look for information, os a create, to create am information. We shall have only one per module. 
 
@@ -369,7 +369,7 @@
         That means that we created a public functions to be able to search for an appointment. Null is something that it will require... 
 
     11. 
-- Listing appointments: why repositories?
+## Listing appointments: why repositories?
 
     We will create a route to see all the appointments. 
 
