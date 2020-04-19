@@ -1,6 +1,6 @@
 # Node + Typescript
 
-- Initial project configuration
+## Initial project configuration
     1. mkdir folder > cd folder > `yarn init -y` > `yarn add express` > `yarn add typescript -D` > `yarn tsc --init`
     2. create folder `src`/`server.ts`
     3. uncomment and give path in `tsconfig.json`:
@@ -22,13 +22,13 @@
     8. But... the problemm with that is that this build process takes too much time. Instead we can add to development process ts-node-dev. 1st delete the dist folder, than: `yarn add ts-node-dev -D` 
     9. Now, back to package.json and add dev environment script: `"dev:server": "ts-node-dev src/server.ts"`  > save and run: `yarn dev:server`  and you will see that when you save a file, server automatically reloads. This replaces both tsc (translation from ts to js) and nodemon (reload server automatically)
     10. Now, just a few more adjusts on our script to make it even faster: transpileOnly  (doesn't check code, just translates... who checks will be my IDE/ VCS) & ignore-watch node_modules: make just to never touch node_modules folder: `"dev:server": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts"` 
-- Configuring Editor Config
+## Configuring Editor Config
 
     Used to able distinct IDE's to work together
 
     1. On VSC install: editorconfig > install 
     2. On VSC, project root, right click: "Generate editor config" > open file and write your own configuration ;)
-- Configuring ESLint
+## Configuring ESLint
 
     EditorConfig + ESLint config will help to have a standard code pattern in a project
 
@@ -97,7 +97,7 @@
 
     12. Save and start server: `yarn dev:server`
 
-- Configuring Prettier
+## Configuring Prettier
 
     To make the code prettier ;). Is integrated with ESLint
 
@@ -133,7 +133,7 @@
             node_modules
             dist
 
-- Debugging Node
+## Debugging Node
     1. VSC click on: Debug > create a lauch json file and configure it: 
 
             "version": "0.2.0",
@@ -184,7 +184,8 @@
     10. Call Stack is everything that is call to execute the function
     11. Loaded scripts: which scripts were uses
     12. Breakpoints: we can filter
-- Separating the routes files
+    
+## Separating the routes files
     1. Create a file just for a type of route we will deal with. For example, to create an app for scheduling appointments, an `appointments.routes.ts` can be a good name > inside of it we will list our routes: 
 
             import { Router } from 'express'; //express module for routes
@@ -271,10 +272,10 @@
             
             const appointments: Appointment[] = []; // we attribute the interface here
 
-Software architecture
+#Software architecture
 
-- Routes (route: receive request, call another file, return response)
-- Model/ Entity (data format)
+## Routes (route: receive request, call another file, return response)
+## Model/ Entity (data format)
 
     They define the data format. It will be created everytime we need this data to be stored. 
 
@@ -386,7 +387,7 @@ Software architecture
               return response.json(appointments);
             });
 
-- SOC Separation of Concerns: each part of our code needs only ONE concern. - Working with data
+## SOC Separation of Concerns: each part of our code needs only ONE concern. - Working with data
 
     DTO Data Transfer Object: when we refactor our code, passing information from one place to another.
 
@@ -456,7 +457,7 @@ Software architecture
             public create({ provider, date }: CreateAppointmentDTO): Appointment {
                 const appointment = new Appointment({ provider, date });
 
-- Services (stores the business rules)
+## Services (stores the business rules)
 
     How do I identify my business rules? Are the specificities of our code, the many if/ elses. 
 
@@ -517,7 +518,7 @@ Software architecture
             constructor(appointmentsRepository: AppointmentsRepository) { }
 
     6. 
-- SOLID
+## SOLID
 
     SOLID are principles object-oriented programming, is an acronym for 5 design principles intended to make software designs more understandable, flexible and maintainable: 
 
